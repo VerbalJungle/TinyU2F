@@ -14,7 +14,7 @@ Credentials are saved via **LittleFS**, making it primarily built for **RP2040 /
 
 ## 📦 Dependencies
 Before using this library, make sure to install the following dependencies:
-1. **Earle Philhower's arduino-pico core** - For the Adafruit TinyUSB Stack
+1. **Earle Philhower's arduino-pico core** - For the Adafruit TinyUSB Stack (to initialise it the first time, best follow the instructions in the official repo)
 2. **microecc** (by Ken MacKay) - For ECDSA P-256 elliptic curve cryptography (via Library Manager).
 3. **Crypto** (by Rhys Weatherley) - For SHA-256 hashing (via Library Manager).
 
@@ -24,6 +24,10 @@ Before using this library, make sure to install the following dependencies:
 3. Select the downloaded `.zip` file.
 
 ## ➡️ Usage
+(for RP2040) **First** go to Tools and set Flash Size to **"2MB(Sketch: 1MB, FS: 1MB)"** 
+**then** set **USB Stack** to **"Adafruit TinyUSB"** (not Host native)
+If you dont see any settings under Tools you may haven't installed the arduino-pico core or chose the wrong board
+
 Include the library and the USB stack in your sketch, configure your user presence callback, and process requests in the `loop()`.
 
 ```cpp
@@ -56,6 +60,10 @@ Tested and verified on:
 * GitHub (2FA / Security Key)
 * Firefox & Chrome
 * 🌐 webauthn.io (Recommended for testing registration and authentication)
+
+## 🔒 Security and Dsiclaimer
+
+Disclaimer: TinyU2F is an open-source, experimental project meant for DIY/Maker use and learning. The library utilises just CTAP1(U2F) not real CTAP2(FIDO2). For high-security or mission-critical accounts, use commercial, FIDO2-certified security keys.
 
 ## 🤝 Contributing
 
